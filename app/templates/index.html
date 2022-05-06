@@ -1,0 +1,71 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 col-sm-12">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  {% for i in cars %}  
+                  <div class="carousel-item {{i.status}}" data-bs-interval="2000">
+                    <img src="static/app/media{{i.photo.url}}" class="d-block w-55  img-fluid" alt="...">
+                    </div>
+                    {% endfor %}
+                  </div>
+
+              </div>
+              {% for i in abut %}
+                  <p class="shadow-none p-4  fs-7 mb-5 bg-light rounded mt-5 fst-italic">{{i.text}}</p>
+              {% endfor %}
+          </div>
+          <div class="col-md-3 col-sm-12">
+              
+                  {% for i in del %}
+                  <div class="border-3  p-2">
+                    <h5 class="text-center">{{i.title}}</h5>
+                    <p class="text-muted">{{i.text}}</p>
+                  </div>
+                  
+                  <hr>
+                  {% endfor %}
+              
+          </div>
+      </div>
+  </div>
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        {% for i in prod %}
+        <div class="col-md-3 col-sm-12">
+            <div class="card shadow-lg bg-body rounded" style="width: 20rem;">
+                <img src="static/app/media{{i.image.url}}" class="card-img-top img-fluid img-thumbnail" alt="...">
+                <div class="card-body pt-4">
+                  <h4>{{i.title}}</h4>
+                  <p class="card-text">{{i.description}}.</p>
+                  <div class="price d-flex align-items-center">
+                    <p class="fs-3">Price</p>
+                    <p class="text-muted ms-auto fs-4">${{i.price}}</p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <p><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-half text-warning"></i></p>
+                    {% if user.is_authenticated %}
+                    <p class="text-center ms-auto   "> <a href="{% url 'product' i.id %}"><i class="bi bi-cart-plus fs-2 text-muted"></i></a> </p>
+                    {% endif  %}
+                  </div>
+                   
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+{% endblock %}

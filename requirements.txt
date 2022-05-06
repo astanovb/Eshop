@@ -1,0 +1,7 @@
+asgiref==3.5.0
+Django==4.0.4
+django-faicon==0.1.0
+django-simple-search==1.0.2
+Pillow==9.1.0
+PyYAML==6.0
+sqlparse==0.4.2

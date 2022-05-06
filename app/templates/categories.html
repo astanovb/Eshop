@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        {% for a in prod %}
+        <div class="col-12">
+            <div class="card mb-3 shadow-lg bg-body rounded" >
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="/static/app/media{{a.image.url}}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{a.title}}</h5>
+                      <p class="card-text">{{a.description}}.</p>
+                      <p class="fs-3">Price : <span class="text-muted fs-4">${{a.price}}</span></p>
+                      <p><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-half text-warning"></i></p>
+                      <p class="card-text"><small class="text-muted">Post date : {{a.created}}</small></p>
+                      <button type="button" class="btn btn-outline-dark">Add to cart</button>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+            <!-- <div class="card shadow-lg bg-body rounded" style="width: 20rem;">
+                <img src="/static/app/media{{a.image.url}}" class="card-img-top img-fluid img-thumbnail" alt="...">
+                <div class="card-body pt-4">
+                  <h4>{{a.title}}</h4>
+                  <p class="card-text">{{a.description}}.</p>
+                  <div class="price d-flex align-items-center">
+                    <p class="fs-3">Price</p>
+                    <p class="text-muted ms-auto fs-4">${{a.price}}</p>
+                  </div>
+                  <p><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-half text-warning"></i></p>
+                </div>
+            </div> -->
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
